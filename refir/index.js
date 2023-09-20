@@ -60,7 +60,7 @@ class Refir {
       });
 
       if (response?.data?.status) {
-        return response.data?.refferalCode;
+        return response.data?.lead?.referralCode;
       } else {
         return false;
       }
