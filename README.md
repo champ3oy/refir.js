@@ -6,7 +6,7 @@ Refir is a Node.js library that simplifies the management of referral programs f
 
 Before you can start using Refir, you'll need to complete the following steps:
 
-1. **Sign Up at Our Website**: To access the Refir API and obtain an API key, you must first sign up at our website [refir](https://www.refir.vercel.app). Once you've signed up, you'll be able to log in to your dashboard to manage your referral program, track users, and access insights and reports.
+1. **Sign Up at Our Website**: To access the Refir API and obtain an API key, you must first sign up at our website [refir](https://refir.vercel.app). Once you've signed up, you'll be able to log in to your dashboard to manage your referral program, track users, and access insights and reports.
 
 2. **Obtain Your API Key**: After signing up and logging in to your dashboard, you'll find your unique API key in the campaign settings or API section of your dashboard. This API key is required to configure Refir and make API requests.
 
