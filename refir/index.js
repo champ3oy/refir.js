@@ -15,6 +15,10 @@ class Refir {
       throw new Error("Please configure the apiKey first.");
     }
 
+    if (!(userId && name && email)) {
+      throw new Error("Please pass in a correct user object");
+    }
+
     try {
       const response = await axios.post(
         ENDPOINTS.WEBHOOK,
@@ -44,6 +48,9 @@ class Refir {
   async getUserById(id) {
     if (!this.apiKey) {
       throw new Error("Please configure the apiKey first.");
+    }
+    if (!id) {
+      throw new Error("Please pass the userId");
     }
     try {
       const response = await axios.get(`${ENDPOINTS.GET_LEAD}${id}`, {
