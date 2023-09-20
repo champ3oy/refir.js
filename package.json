@@ -12,8 +12,8 @@
     "refer"
   ],
   "repository": {
-    "type": "url",
-    "url": "https://github.com/champ3oy/ref/tree/main/node-package"
+    "type": "git",
+    "url": "git+https://github.com/champ3oy/refir.js.git"
   },
   "author": "cirlorm",
   "license": "ISC",
