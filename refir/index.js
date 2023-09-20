@@ -1,7 +1,7 @@
-import { ENDPOINTS } from "../constants";
 const axios = require("axios");
+const { ENDPOINTS } = require("../constants");
 
-export default class Refir {
+class Refir {
   constructor() {
     this.apiKey = null;
   }
@@ -19,7 +19,7 @@ export default class Refir {
       const response = await axios.post(
         ENDPOINTS.WEBHOOK,
         {
-          userId,
+          leadId: userId,
           name,
           email,
         },
@@ -29,15 +29,12 @@ export default class Refir {
           },
         }
       );
-      if (!response.ok) {
-        throw new HTTPResponseError(
-          response.status,
-          response.statusText,
-          await response.json()
-        );
-      }
 
-      return true;
+      if (response?.data?.status) {
+        return true;
+      } else {
+        return false;
+      }
     } catch (error) {
       console.error(error);
       return false;
@@ -54,18 +51,17 @@ export default class Refir {
           "x-api-key": this.apiKey,
         },
       });
-      if (!response.ok) {
-        throw new HTTPResponseError(
-          response.status,
-          response.statusText,
-          await response.json()
-        );
-      }
 
-      return response.data?.refferalCode;
+      if (response?.data?.status) {
+        return response.data?.refferalCode;
+      } else {
+        return false;
+      }
     } catch (error) {
       console.error(error);
       return false;
     }
   }
 }
+
+module.exports = Refir;

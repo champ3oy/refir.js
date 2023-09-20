@@ -1,3 +1,2 @@
-import Refir from "./refir";
-
+const Refir = require("./refir");
 module.exports = Refir;
