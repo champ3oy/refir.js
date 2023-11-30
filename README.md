@@ -55,9 +55,10 @@ const user = {
   email: "johndoe@example.com",
 };
 
-const success = await refir.addUser(user);
+const user = await refir.addUser(user);
 
-if (success) {
+if (user.status) {
+  console.log(user);
   console.log("User added successfully.");
 } else {
   console.error("Failed to add user.");
@@ -71,10 +72,10 @@ You can retrieve a user's referral code by their unique ID using Refir. Here's a
 ```javascript
 const userId = "unique-user-id";
 
-const referralCode = await refir.getUserById(userId);
+const referral = await refir.getUserById(userId);
 
-if (referralCode) {
-  console.log(`User's referral code: ${referralCode}`);
+if (referral.status) {
+  console.log(`User's referral code and link: ${referralCode.data}`);
 } else {
   console.error("Failed to get user referral code.");
 }

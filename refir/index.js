@@ -67,8 +67,11 @@ class Refir {
 
       if (response?.data?.status) {
         return {
-          referralCode: response.data?.lead?.referralCode,
-          referralLink: response.data?.lead?.referralLink,
+          status: true,
+          data: {
+            referralCode: response.data?.lead?.referralCode,
+            referralLink: response.data?.lead?.referralLink,
+          },
         };
       } else {
         return false;
