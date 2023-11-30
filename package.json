@@ -1,6 +1,6 @@
 {
   "name": "refir",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Add referral to your app with ease. With refir you can grow your user-base by aloowing your users to refer friends",
   "main": "index.js",
   "scripts": {

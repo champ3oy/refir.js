@@ -10,7 +10,7 @@ class Refir {
     this.apiKey = options.apiKey;
   }
 
-  async addUser({ userId, name, email }) {
+  async addUser({ userId, name, email, referralCode }) {
     if (!this.apiKey) {
       throw new Error("Please configure the apiKey first.");
     }
@@ -26,6 +26,7 @@ class Refir {
           leadId: userId,
           name,
           email,
+          referralCode,
         },
         {
           headers: {
@@ -35,7 +36,12 @@ class Refir {
       );
 
       if (response?.data?.status) {
-        return true;
+        return {
+          status: true,
+          data: {
+            ...response?.data,
+          },
+        };
       } else {
         return false;
       }
@@ -60,7 +66,10 @@ class Refir {
       });
 
       if (response?.data?.status) {
-        return response.data?.lead?.referralCode;
+        return {
+          referralCode: response.data?.lead?.referralCode,
+          referralLink: response.data?.lead?.referralLink,
+        };
       } else {
         return false;
       }
